@@ -5,5 +5,6 @@ unless defined?(RAILS_ROOT)
 end
 
 require 'fileutils'
-FileUtils.rm_rf(RAILS_ROOT + '/script/process') # remove the old stubs first
-FileUtils.cp_r(RAILS_ROOT + '/vendor/plugins/irs_process_scripts/script', RAILS_ROOT + '/script/process')
+['reaper','spawner','inspector'].each do |filename|
+  FileUtils.cp_r(RAILS_ROOT + '/vendor/plugins/irs_process_scripts/script/' + filename, RAILS_ROOT + '/script/process')
+end
